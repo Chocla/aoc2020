@@ -1,13 +1,1 @@
-with open('input.txt','r') as f:
-    s = f.read().split('\n')
- 
-k = {"F":0,"B":1,"L":0,"R":1}
-def decodeSeat(s):
-    return sum((k[s[i]] << (len(s) - i-1)) for i in range(len(s)))
-
-def day5(s):
-    seats = list(map(decodeSeat,s))
-    m,M = min(seats),max(seats)
-    return M, set(range(m,M+1)).difference(seats)
-
-print(day5(s))
+print((lambda seats: (seats[-1], set(range(seats[0],seats[-1]+1)).difference(seats)))((lambda s,k: sorted(list(map(lambda l: sum((k[l[i]] << (len(l) - i-1)) for i in range(len(l))),s))))(open('input.txt','r').read().split('\n'), {"F":0,"B":1,"L":0,"R":1})))
