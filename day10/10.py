@@ -12,8 +12,6 @@ for v in runs:
         p2c *= 4
     elif v == 2:
         p2c *= 2
-def trib(n):
-    a0 = 0, a1 = 0, a2 = 1
 print((tmp.count(3)+1) * (tmp.count(1)+1))
 print(p2c)
 
